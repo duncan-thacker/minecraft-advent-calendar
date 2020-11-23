@@ -4,6 +4,8 @@ import { useLocalStorage } from "react-use";
 import BACKGROUND_IMAGE from "./background.jpg";
 import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
+import useSound from "use-sound";
+import LEVEL_UP_SOUND from "./sounds/levelup.ogg";
 
 export default function App() {
   const [openWindows = [], setOpenWindows, clearWindowState] = useLocalStorage(
@@ -13,13 +15,16 @@ export default function App() {
 
   const [blockModal, setBlockModal] = useState(0);
 
+  const [playLevelUp] = useSound(LEVEL_UP_SOUND);
+
   const currentDayNumber = 10; //TODO get real number
   const handleWindowOpen = useCallback(
     (dayNumber) => {
       setBlockModal(dayNumber);
+      playLevelUp();
       setOpenWindows([...openWindows, dayNumber]);
     },
-    [setOpenWindows, openWindows]
+    [setOpenWindows, openWindows, playLevelUp]
   );
 
   return (
