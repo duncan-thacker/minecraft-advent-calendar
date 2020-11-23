@@ -1,5 +1,6 @@
 import DIAMOND_ORE_TEXTURE from "./textures/diamond.png";
 import GOLD_ORE_TEXTURE from "./textures/gold-ore.png";
+import IRON_ORE_TEXTURE from "./textures/iron-ore.png";
 import DIRT_GRASS_TEXTURE from "./textures/dirt-grass.jpg";
 import DIRT_BOTTOM_TEXTURE from "./textures/dirt-bottom.png";
 import DIRT_GRASS_TOP_TEXTURE from "./textures/dirt-grass-top.jpg";
@@ -25,12 +26,14 @@ const DAYS = [
     day: 2,
     title: "Gold ore",
     description:
-      "Gold ore is one of the rarest types of mineral blocks found underground. ",
+      "Gold ore is one of the rarest types of mineral blocks found underground.",
     texture: GOLD_ORE_TEXTURE,
   },
   {
     day: 3,
-    ...DEFAULT,
+    title: "Iron ore",
+    description: "Iron ore is cool",
+    texture: IRON_ORE_TEXTURE,
   },
   {
     day: 4,
