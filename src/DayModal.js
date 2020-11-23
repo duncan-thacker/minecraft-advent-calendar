@@ -28,7 +28,9 @@ export default function DayModal({ dayNumber, onClose }) {
 
   useEffect(() => {
     const dayInfo = DAYS_INFO.find((each) => each.day === dayNumber);
-    if (dayInfo) setDayState(dayInfo);
+    if (dayInfo) {
+      setDayState(dayInfo);
+    }
   }, [dayNumber]);
 
   const modal = (
@@ -36,7 +38,7 @@ export default function DayModal({ dayNumber, onClose }) {
       style={{
         position: "fixed",
         opacity: isVisible ? 1 : 0,
-        transition: "opacity 0.4s ease-in-out",
+        transition: "opacity 0.4s ease-in-out 0.4s",
         pointerEvents: isVisible ? "all" : "none",
         top: 0,
         left: 0,

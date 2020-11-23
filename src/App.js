@@ -6,6 +6,7 @@ import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useSound from "use-sound";
 import LEVEL_UP_SOUND from "./sounds/levelup.ogg";
+import useOrbs from "./useOrbs";
 
 export default function App() {
   const [openWindows = [], setOpenWindows, clearWindowState] = useLocalStorage(
@@ -15,16 +16,19 @@ export default function App() {
 
   const [blockModal, setBlockModal] = useState(0);
 
+  const { createOrbs, orbLayer } = useOrbs();
+
   const [playLevelUp] = useSound(LEVEL_UP_SOUND);
 
   const currentDayNumber = 10; //TODO get real number
   const handleWindowOpen = useCallback(
-    (dayNumber) => {
+    (dayNumber, x, y) => {
       setBlockModal(dayNumber);
       playLevelUp();
       setOpenWindows([...openWindows, dayNumber]);
+      createOrbs(x, y, 15);
     },
-    [setOpenWindows, openWindows, playLevelUp]
+    [setOpenWindows, openWindows, playLevelUp, createOrbs]
   );
 
   return (
@@ -33,6 +37,7 @@ export default function App() {
         Clear
       </button>
       <DayModal dayNumber={blockModal} onClose={() => setBlockModal(false)} />
+      {orbLayer}
       <div
         style={{
           width: "100%",
