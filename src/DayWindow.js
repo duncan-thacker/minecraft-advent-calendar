@@ -1,13 +1,28 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-export default function DayWindow({ value, isOpen, canOpen, onOpen }) {
+export default function DayWindow({
+  value,
+  isOpen,
+  canOpen,
+  onOpen,
+  backgroundImage,
+}) {
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const windowRef = useRef();
   const transformStyle = useSpring({
     transform: `rotate3d(0, 1, 0, ${isOpen ? "-110deg" : "0deg"})`,
   });
   const handleClick = useCallback(() => onOpen(value), [onOpen, value]);
+
+  useEffect(() => {
+    setOffset(windowRef.current.getBoundingClientRect());
+    console.log(windowRef.current.getBoundingClientRect().x);
+  }, []);
+
   return (
     <div
+      ref={windowRef}
       style={{
         cursor: "pointer",
         border: "8px solid #ccc",
@@ -33,7 +48,8 @@ export default function DayWindow({ value, isOpen, canOpen, onOpen }) {
           border: "8px solid #fff",
           boxSizing: "border-box",
           borderRadius: 16,
-          backgroundColor: "rgba(255, 255, 255, 0.4)",
+          backgroundImage: `url('${backgroundImage}')`,
+          backgroundPosition: `-${offset.x}px -${offset.y}px`,
           color: "#fff",
           transformOrigin: "left",
           fontFamily: "VT323",

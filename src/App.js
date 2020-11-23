@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import DayWindow from "./DayWindow";
 import { useLocalStorage } from "react-use";
 import DIAMOND_TEXTURE_URL from "./textures/diamond.png";
+import BACKGROUND_IMAGE from "./background.jpg";
 import MinecraftBlock from "./MinecraftBlock";
 
 const DAYS = [
@@ -109,7 +110,7 @@ export default function App() {
         style={{
           width: "100%",
           height: "100%",
-          backgroundColor: "#aaf",
+          backgroundImage: `url('${BACKGROUND_IMAGE}')`,
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
         }}
@@ -121,6 +122,7 @@ export default function App() {
             isOpen={openWindows.includes(dayNumber)}
             onOpen={handleWindowOpen}
             canOpen={dayNumber <= currentDayNumber}
+            backgroundImage={BACKGROUND_IMAGE}
           />
         ))}
       </div>
