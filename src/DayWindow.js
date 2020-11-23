@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 export default function DayWindow({
-  value,
+  day,
   isOpen,
   canOpen,
   onOpen,
@@ -13,7 +13,7 @@ export default function DayWindow({
   const transformStyle = useSpring({
     transform: `rotate3d(0, 1, 0, ${isOpen ? "-110deg" : "0deg"})`,
   });
-  const handleClick = useCallback(() => onOpen(value), [onOpen, value]);
+  const handleClick = useCallback(() => onOpen(day), [onOpen, day]);
 
   useEffect(() => {
     setOffset(windowRef.current.getBoundingClientRect());
@@ -57,7 +57,7 @@ export default function DayWindow({
           ...transformStyle,
         }}
       >
-        {value}
+        {day}
       </animated.button>
     </div>
   );
