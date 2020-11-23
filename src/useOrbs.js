@@ -38,7 +38,7 @@ export default function useOrbs() {
   useRafLoop(() => {
     if (orbState.clockRunning) {
       if (orbState.clock < 5000) {
-        setOrbState((old) => ({ ...old, clock: old.clock + 1 }));
+        setOrbState({ ...orbState, clock: orbState.clock + 1 });
       } else {
         destroyAllOrbs();
       }

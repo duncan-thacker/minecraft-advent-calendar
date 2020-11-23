@@ -22,11 +22,14 @@ export default function App() {
 
   const currentDayNumber = 10; //TODO get real number
   const handleWindowOpen = useCallback(
-    (dayNumber, x, y) => {
+    (dayNumber, x, y, alreadyOpened) => {
       setBlockModal(dayNumber);
-      playLevelUp();
+
       setOpenWindows([...openWindows, dayNumber]);
-      createOrbs(x, y, 15);
+      if (!alreadyOpened) {
+        createOrbs(x, y, 15);
+        playLevelUp();
+      }
     },
     [setOpenWindows, openWindows, playLevelUp, createOrbs]
   );

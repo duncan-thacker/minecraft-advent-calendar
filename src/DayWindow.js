@@ -3,6 +3,7 @@ import { useSpring, animated } from "react-spring";
 
 export default function DayWindow({
   day,
+  title,
   isOpen,
   canOpen,
   onOpen,
@@ -17,6 +18,10 @@ export default function DayWindow({
     (clickEvent) => onOpen(day, clickEvent.clientX, clickEvent.clientY),
     [onOpen, day]
   );
+  const handleOldClick = useCallback(
+    (clickEvent) => onOpen(day, clickEvent.clientX, clickEvent.clientY, true),
+    [onOpen, day]
+  );
 
   useEffect(() => {
     setOffset(windowRef.current.getBoundingClientRect());
@@ -27,7 +32,6 @@ export default function DayWindow({
     <div
       ref={windowRef}
       style={{
-        cursor: "pointer",
         border: "8px solid #ccc",
         backgroundColor: "#642",
         borderRadius: 16,
@@ -55,13 +59,30 @@ export default function DayWindow({
           backgroundPosition: `-${offset.x}px -${offset.y}px`,
           color: "#fff",
           transformOrigin: "left",
-          fontFamily: "VT323",
+          fontFamily: "inherit",
           fontSize: "450%",
           ...transformStyle,
         }}
       >
         {day}
       </animated.button>
+      <button
+        onClick={handleOldClick}
+        style={{
+          cursor: "pointer",
+          width: "100%",
+          height: "100%",
+          background: "none",
+          border: "none",
+          fontFamily: "inherit",
+          color: "rgba(255, 255, 255, 0.6)",
+          fontSize: "180%",
+        }}
+      >
+        {day}
+        <br />
+        {title}
+      </button>
     </div>
   );
 }

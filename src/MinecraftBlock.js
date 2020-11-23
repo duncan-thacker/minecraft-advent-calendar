@@ -45,8 +45,6 @@ function Block({
 function Dolly({ fov }) {
   useFrame((state) => {
     state.camera.fov = fov;
-    const distance = 640 / (2 * Math.tan(THREE.Math.degToRad(fov / 2)));
-    console.log(distance);
     state.camera.position.z = 50;
     state.camera.updateProjectionMatrix();
   });
