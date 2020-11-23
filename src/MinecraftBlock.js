@@ -1,6 +1,6 @@
 import React, { useRef, Suspense } from "react";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
-import { TextureLoader } from "three";
+import * as THREE from "three";
 
 function Block({
   textureLocation,
@@ -8,7 +8,6 @@ function Block({
   textureLocationBottom,
   rotationSpeed,
   viewAngle,
-  scale,
   ...props
 }) {
   // This reference will give us direct access to the mesh
@@ -20,18 +19,18 @@ function Block({
     mesh.current.rotation.y = mesh.current.rotation.y += rotationSpeed;
   });
 
-  const texture = useLoader(TextureLoader, textureLocation);
+  const texture = useLoader(THREE.TextureLoader, textureLocation);
   const textureTop = useLoader(
-    TextureLoader,
+    THREE.TextureLoader,
     textureLocationTop || textureLocation
   );
   const textureBottom = useLoader(
-    TextureLoader,
+    THREE.TextureLoader,
     textureLocationBottom || textureLocation
   );
 
   return (
-    <mesh {...props} ref={mesh} scale={[scale, scale, scale]}>
+    <mesh {...props} ref={mesh} scale={[1, 1, 1]}>
       <boxBufferGeometry args={[2, 2, 2]} />
       <meshStandardMaterial attachArray="material" map={texture} />
       <meshStandardMaterial attachArray="material" map={texture} />
@@ -43,14 +42,26 @@ function Block({
   );
 }
 
-export default function MinecraftBlock({ ambientLight, ...props }) {
+function Dolly({ fov }) {
+  useFrame((state) => {
+    state.camera.fov = fov;
+    const distance = 640 / (2 * Math.tan(THREE.Math.degToRad(fov / 2)));
+    console.log(distance);
+    state.camera.position.z = 50;
+    state.camera.updateProjectionMatrix();
+  });
+  return null;
+}
+
+export default function MinecraftBlock({ ambientLight, style, fov, ...props }) {
   return (
-    <Canvas>
+    <Canvas style={style}>
       <Suspense fallback={null}>
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={ambientLight} />
         <Block position={[0, 0, 0]} {...props} />
       </Suspense>
+      <Dolly fov={fov} />
     </Canvas>
   );
 }

@@ -7,10 +7,7 @@ import Slider from "@material-ui/core/Slider";
 export default function DayModal({ dayNumber, onClose }) {
   const isVisible = Boolean(dayNumber);
   const [dayState, setDayState] = useState({});
-  const [scale, setScale] = useState(50);
-  const handleScaleChange = useCallback((event, newValue) => {
-    setScale(newValue);
-  }, []);
+
   const [rotationSpeed, setRotationSpeed] = useState(5);
   const handleRotationSpeedChange = useCallback((event, newValue) => {
     setRotationSpeed(newValue);
@@ -23,6 +20,12 @@ export default function DayModal({ dayNumber, onClose }) {
   const handleAmbientLightChange = useCallback((event, newValue) => {
     setAmbientLight(newValue);
   }, []);
+
+  const [fov, setFov] = useState(25);
+  const handleFovChange = useCallback((event, newValue) => {
+    setFov(newValue);
+  }, []);
+
   useEffect(() => {
     const dayInfo = DAYS_INFO.find((each) => each.day === dayNumber);
     if (dayInfo) setDayState(dayInfo);
@@ -58,36 +61,47 @@ export default function DayModal({ dayNumber, onClose }) {
           padding: "5vw",
           zIndex: 500,
           fontSize: "180%",
-          width: 800,
+          display: "flex",
+          alignItems: "flex-start",
         }}
       >
-        <h2 style={{ fontSize: "400%", margin: "8px 0" }}>{dayState.title}</h2>
-        <p>{dayState.description}</p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "200px 1fr",
-            alignItems: "center",
-          }}
-        >
-          <div>Size</div>
-          <Slider value={scale} onChange={handleScaleChange} />
-          <div>Rotation Speed</div>
-          <Slider value={rotationSpeed} onChange={handleRotationSpeedChange} />
-          <div>View Angle</div>
-          <Slider value={viewAngle} onChange={handleViewAngleChange} />
-          <div>Light</div>
-          <Slider value={ambientLight} onChange={handleAmbientLightChange} />
+        <div style={{ flex: "1 1 0" }}>
+          <h2 style={{ fontSize: "400%", margin: "8px 0" }}>
+            {dayState.title}
+          </h2>
+          <p>{dayState.description}</p>
         </div>
-        <MinecraftBlock
-          textureLocation={dayState.texture}
-          textureLocationTop={dayState.textureTop}
-          textureLocationBottom={dayState.textureLocationBottom}
-          rotationSpeed={rotationSpeed / 500}
-          viewAngle={(viewAngle - 50) / 60}
-          ambientLight={ambientLight / 100}
-          scale={scale / 50}
-        />
+        <div style={{ flex: "0 0 600px" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "200px 1fr",
+              alignItems: "center",
+            }}
+          >
+            <div>Size</div>
+            <Slider value={fov} onChange={handleFovChange} />
+            <div>Rotation Speed</div>
+            <Slider
+              value={rotationSpeed}
+              onChange={handleRotationSpeedChange}
+            />
+            <div>View Angle</div>
+            <Slider value={viewAngle} onChange={handleViewAngleChange} />
+            <div>Light</div>
+            <Slider value={ambientLight} onChange={handleAmbientLightChange} />
+          </div>
+          <MinecraftBlock
+            textureLocation={dayState.texture}
+            textureLocationTop={dayState.textureTop}
+            textureLocationBottom={dayState.textureLocationBottom}
+            rotationSpeed={rotationSpeed / 500}
+            viewAngle={(viewAngle - 50) / 60}
+            ambientLight={ambientLight / 100}
+            fov={125 / fov}
+            style={{ height: 600, width: 600 }}
+          />
+        </div>
       </div>
     </div>
   );
