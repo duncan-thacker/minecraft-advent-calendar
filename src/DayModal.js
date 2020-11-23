@@ -38,7 +38,9 @@ export default function DayModal({ dayNumber, onClose }) {
       style={{
         position: "fixed",
         opacity: isVisible ? 1 : 0,
-        transition: "opacity 0.4s ease-in-out 0.4s",
+        transition: isVisible
+          ? "opacity 0.4s ease-in-out 0.4s"
+          : "opacity 0.4s ease-in-out 0s",
         pointerEvents: isVisible ? "all" : "none",
         top: 0,
         left: 0,

@@ -21,7 +21,7 @@ export default function useOrbs() {
       initialX,
       initialY,
       velocityX: randomUpTo(6) - 3,
-      velocityY: randomUpTo(1.5) - 2,
+      velocityY: randomUpTo(6) - 7,
       fadeSpeed: randomUpTo(0.01),
       size: Math.floor(randomUpTo(24)) + 8,
       weight: 1,
@@ -45,7 +45,7 @@ export default function useOrbs() {
     }
   });
 
-  const opacity = 1 - orbState.clock * 0.005;
+  const opacity = 1 - orbState.clock * 0.009;
   const gravityTerm = 0.1 * orbState.clock * orbState.clock;
 
   return {

@@ -27,7 +27,7 @@ export default function App() {
 
       setOpenWindows([...openWindows, dayNumber]);
       if (!alreadyOpened) {
-        createOrbs(x, y, 15);
+        createOrbs(x, y, 10);
         playLevelUp();
       }
     },
