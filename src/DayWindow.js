@@ -69,6 +69,7 @@ export default function DayWindow({
       <button
         onClick={handleOldClick}
         style={{
+          boxShadow: "inset 10px 10px 18px rgba(0,0,0,0.6)",
           cursor: "pointer",
           width: "100%",
           height: "100%",
