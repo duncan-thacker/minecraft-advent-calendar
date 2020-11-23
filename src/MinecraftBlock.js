@@ -6,6 +6,7 @@ function Block({
   textureLocation,
   textureLocationTop,
   textureLocationBottom,
+  textureLocationFront,
   rotationSpeed,
   viewAngle,
   ...props
@@ -28,6 +29,10 @@ function Block({
     THREE.TextureLoader,
     textureLocationBottom || textureLocation
   );
+  const textureFront = useLoader(
+    THREE.TextureLoader,
+    textureLocationFront || textureLocation
+  );
 
   return (
     <mesh {...props} ref={mesh} scale={[1, 1, 1]}>
@@ -36,7 +41,7 @@ function Block({
       <meshStandardMaterial attachArray="material" map={texture} />
       <meshStandardMaterial attachArray="material" map={textureTop} />
       <meshStandardMaterial attachArray="material" map={textureBottom} />
-      <meshStandardMaterial attachArray="material" map={texture} />
+      <meshStandardMaterial attachArray="material" map={textureFront} />
       <meshStandardMaterial attachArray="material" map={texture} />
     </mesh>
   );

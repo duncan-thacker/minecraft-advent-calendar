@@ -1,9 +1,14 @@
 import DIAMOND_ORE_TEXTURE from "./textures/diamond.png";
 import GOLD_ORE_TEXTURE from "./textures/gold-ore.png";
 import IRON_ORE_TEXTURE from "./textures/iron-ore.png";
+import LAPIS_ORE_TEXTURE from "./textures/lapis-ore.png";
+import REDSTONE_ORE_TEXTURE from "./textures/redstone-ore.png";
 import DIRT_GRASS_TEXTURE from "./textures/dirt-grass.jpg";
 import DIRT_BOTTOM_TEXTURE from "./textures/dirt-bottom.png";
 import DIRT_GRASS_TOP_TEXTURE from "./textures/dirt-grass-top.jpg";
+import PUMPKIN_TOP_TEXTURE from "./textures/pumpkin-top.png";
+import PUMPKIN_SIDE_TEXTURE from "./textures/pumpkin-side.png";
+import PUMPKIN_FACE_TEXTURE from "./textures/pumpkin-face.png";
 
 const DEFAULT = {
   title: "Diamond Ore",
@@ -37,15 +42,23 @@ const DAYS = [
   },
   {
     day: 4,
-    ...DEFAULT,
+    title: "Lapis Lazuli ore",
+    description: "Lapis ore is cool",
+    texture: LAPIS_ORE_TEXTURE,
   },
   {
     day: 5,
-    ...DEFAULT,
+    title: "Redstone ore",
+    description: "Redstone is cool",
+    texture: REDSTONE_ORE_TEXTURE,
   },
   {
     day: 6,
-    ...DEFAULT,
+    title: "Carved Pumpkin",
+    description: "Spoooopy",
+    texture: PUMPKIN_SIDE_TEXTURE,
+    textureTop: PUMPKIN_TOP_TEXTURE,
+    textureFront: PUMPKIN_FACE_TEXTURE,
   },
   {
     day: 7,

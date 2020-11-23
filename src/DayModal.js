@@ -8,7 +8,7 @@ export default function DayModal({ dayNumber, onClose }) {
   const isVisible = Boolean(dayNumber);
   const [dayState, setDayState] = useState({});
 
-  const [rotationSpeed, setRotationSpeed] = useState(5);
+  const [rotationSpeed, setRotationSpeed] = useState(55);
   const handleRotationSpeedChange = useCallback((event, newValue) => {
     setRotationSpeed(newValue);
   }, []);
@@ -112,8 +112,9 @@ export default function DayModal({ dayNumber, onClose }) {
           <MinecraftBlock
             textureLocation={dayState.texture}
             textureLocationTop={dayState.textureTop}
-            textureLocationBottom={dayState.textureLocationBottom}
-            rotationSpeed={rotationSpeed / 500}
+            textureLocationBottom={dayState.textureBottom}
+            textureLocationFront={dayState.textureFront}
+            rotationSpeed={(rotationSpeed - 50) / 500}
             viewAngle={(viewAngle - 50) / 60}
             ambientLight={ambientLight / 100}
             fov={125 / fov}
