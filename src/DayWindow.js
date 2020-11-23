@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 
-export default function DayWindow({ value }) {
-  const [isClicked, setIsClicked] = useState(false);
+export default function DayWindow({ value, isOpen, canOpen, onOpen }) {
   const transformStyle = useSpring({
-    transform: `rotate3d(0, 1, 0, ${isClicked ? "-110deg" : "0deg"})`,
+    transform: `rotate3d(0, 1, 0, ${isOpen ? "-110deg" : "0deg"})`,
   });
+  const handleClick = useCallback(() => onOpen(value), [onOpen, value]);
   return (
     <div
       style={{
@@ -21,7 +21,8 @@ export default function DayWindow({ value }) {
       }}
     >
       <animated.button
-        onClick={() => setIsClicked(true)}
+        disabled={!canOpen}
+        onClick={handleClick}
         style={{
           position: "absolute",
           top: -8,
@@ -32,7 +33,7 @@ export default function DayWindow({ value }) {
           border: "8px solid #fff",
           boxSizing: "border-box",
           borderRadius: 16,
-          backgroundColor: "rgba(0, 0, 0, 0.3)",
+          backgroundColor: "rgba(255, 255, 255, 0.4)",
           color: "#fff",
           transformOrigin: "left",
           fontFamily: "VT323",
