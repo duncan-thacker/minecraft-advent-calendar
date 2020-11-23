@@ -70,6 +70,20 @@ export default function DayModal({ dayNumber, onClose }) {
             {dayState.title}
           </h2>
           <p>{dayState.description}</p>
+          <button
+            onClick={onClose}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "200%",
+              cursor: "pointer",
+              color: "inherit",
+              fontFamily: "inherit",
+              margin: 16,
+            }}
+          >
+            Close
+          </button>
         </div>
         <div style={{ flex: "0 0 600px" }}>
           <div
