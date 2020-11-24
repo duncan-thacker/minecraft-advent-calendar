@@ -97,9 +97,9 @@ export default function DayModal({ dayNumber, onClose }) {
               alignItems: "center",
             }}
           >
-            <div>Size</div>
+            <div>Zoom</div>
             <Slider value={fov} onChange={handleFovChange} />
-            <div>Rotation Speed</div>
+            <div>Rotation</div>
             <Slider
               value={rotationSpeed}
               onChange={handleRotationSpeedChange}
@@ -117,7 +117,7 @@ export default function DayModal({ dayNumber, onClose }) {
             rotationSpeed={(rotationSpeed - 50) / 400}
             viewAngle={(viewAngle - 50) / 60}
             ambientLight={ambientLight / 50}
-            fov={125 / fov}
+            fov={125 / (fov + 5)}
             style={{ height: 600, width: 600 }}
           />
         </div>
