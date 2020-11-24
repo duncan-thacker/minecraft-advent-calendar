@@ -2,6 +2,11 @@ import React, { useCallback, useState } from "react";
 import { useRafLoop } from "react-use";
 import XP_ORB_IMG from "./img/ExperienceOrb.gif";
 
+function preloadImage(filename) {
+  const img = new Image();
+  img.src = filename;
+}
+
 function randomUpTo(high) {
   return Math.random() * high;
 }
