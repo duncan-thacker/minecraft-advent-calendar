@@ -4,9 +4,6 @@ import { useLocalStorage } from "react-use";
 import BACKGROUND_IMAGE from "./background.jpg";
 import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
-import useSound from "use-sound";
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import LEVEL_UP_SOUND from "url-loader!./sounds/levelup.mp3";
 import useOrbs from "./useOrbs";
 
 export default function App() {
@@ -19,10 +16,8 @@ export default function App() {
 
   const { createOrbs, orbLayer } = useOrbs();
 
-  const [playLevelUp] = useSound(LEVEL_UP_SOUND);
-
   const currentDayNumber = 30; //TODO get real number
-  
+
   const handleWindowOpen = useCallback(
     (dayNumber, x, y, alreadyOpened) => {
       setBlockModal(dayNumber);
@@ -30,10 +25,9 @@ export default function App() {
       setOpenWindows([...openWindows, dayNumber]);
       if (!alreadyOpened) {
         createOrbs(x, y, 10);
-        playLevelUp();
       }
     },
-    [setOpenWindows, openWindows, playLevelUp, createOrbs]
+    [setOpenWindows, openWindows, createOrbs]
   );
 
   return (

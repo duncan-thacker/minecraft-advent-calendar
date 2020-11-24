@@ -57,7 +57,7 @@ export default function DayWindow({
           backgroundImage: `url('${backgroundImage}')`,
           backgroundPosition: `-${offset.x}px -${offset.y}px`,
           color: "#fff",
-          "-webkit-text-stroke": "1px black",
+          WebkitTextStroke: "1px black",
           transformOrigin: "left",
           fontFamily: "inherit",
           fontSize: "5vw",

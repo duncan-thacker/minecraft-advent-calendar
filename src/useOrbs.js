@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
 import { useRafLoop } from "react-use";
 import XP_ORB_IMG from "./img/ExperienceOrb.gif";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import LEVEL_UP_SOUND from "!url-loader!./sounds/levelup.mp3";
+import useSound from "use-sound";
 
 function preloadImage(filename) {
   const img = new Image();
@@ -21,24 +24,29 @@ const DEFAULT_ORB_STATE = {
 
 export default function useOrbs() {
   const [orbState, setOrbState] = useState(DEFAULT_ORB_STATE);
+  const [playLevelUp] = useSound(LEVEL_UP_SOUND);
 
-  const createOrbs = useCallback((initialX, initialY, numberOfOrbs) => {
-    const newOrbs = new Array(numberOfOrbs).fill(false).map((v, index) => ({
-      id: index,
-      initialX,
-      initialY,
-      velocityX: randomUpTo(6) - 3,
-      velocityY: randomUpTo(6) - 7,
-      fadeSpeed: randomUpTo(0.01),
-      size: Math.floor(randomUpTo(24)) + 8,
-      weight: 1,
-    }));
-    setOrbState({
-      orbs: newOrbs,
-      clock: 0,
-      clockRunning: true,
-    });
-  }, []);
+  const createOrbs = useCallback(
+    (initialX, initialY, numberOfOrbs) => {
+      playLevelUp();
+      const newOrbs = new Array(numberOfOrbs).fill(false).map((v, index) => ({
+        id: index,
+        initialX,
+        initialY,
+        velocityX: randomUpTo(6) - 3,
+        velocityY: randomUpTo(6) - 7,
+        fadeSpeed: randomUpTo(0.01),
+        size: Math.floor(randomUpTo(24)) + 8,
+        weight: 1,
+      }));
+      setOrbState({
+        orbs: newOrbs,
+        clock: 0,
+        clockRunning: true,
+      });
+    },
+    [playLevelUp]
+  );
 
   const destroyAllOrbs = useCallback(() => setOrbState(DEFAULT_ORB_STATE), []);
 
