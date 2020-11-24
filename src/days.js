@@ -1,6 +1,8 @@
 import DIAMOND_ORE_TEXTURE from "./textures/diamond.png";
 import GOLD_ORE_TEXTURE from "./textures/gold-ore.png";
 import IRON_ORE_TEXTURE from "./textures/iron-ore.png";
+import COAL_ORE_TEXTURE from "./game-textures/coal_ore.png";
+import EMERALD_ORE_TEXTURE from "./game-textures/emerald_ore.png";
 import LAPIS_ORE_TEXTURE from "./textures/lapis-ore.png";
 import REDSTONE_ORE_TEXTURE from "./textures/redstone-ore.png";
 import DIRT_GRASS_TEXTURE from "./textures/dirt-grass.jpg";
@@ -12,6 +14,16 @@ import PUMPKIN_FACE_TEXTURE from "./textures/pumpkin-face.png";
 import TNT_TOP_TEXTURE from "./textures/tnt-top.png";
 import TNT_SIDE_TEXTURE from "./textures/tnt-side.png";
 import TNT_BOTTOM_TEXTURE from "./textures/tnt-bottom.png";
+import ANCIENT_DEBRIS_TOP from "./game-textures/ancient_debris_top.png";
+import ANCIENT_DEBRIS_SIDE from "./game-textures/ancient_debris_side.png";
+import OAK_LOG_SIDE from "./game-textures/oak_log.png";
+import OAK_LOG_TOP from "./game-textures/oak_log_top.png";
+import CRAFTING_TABLE_TOP from "./game-textures/crafting_table_top.png";
+import CRAFTING_TABLE_SIDE from "./game-textures/crafting_table_side.png";
+import CRAFTING_TABLE_FRONT from "./game-textures/crafting_table_front.png";
+import CAKE_SIDE from "./game-textures/cake_side.png";
+import CAKE_TOP from "./game-textures/cake_top.png";
+import CAKE_BOTTOM from "./game-textures/cake_bottom.png";
 
 const DEFAULT = {
   title: "Diamond Ore",
@@ -73,27 +85,49 @@ const DAYS = [
   },
   {
     day: 8,
-    ...DEFAULT,
+    title: "Emerald ore",
+    description: "Emerald is cool",
+    texture: EMERALD_ORE_TEXTURE,
   },
   {
     day: 9,
-    ...DEFAULT,
+    title: "Coal ore",
+    description: "Coal is cool",
+    texture: COAL_ORE_TEXTURE,
   },
   {
     day: 10,
-    ...DEFAULT,
+    title: "Ancient Debris",
+    description: "Ooooh Netherite!!!",
+    texture: ANCIENT_DEBRIS_SIDE,
+    textureTop: ANCIENT_DEBRIS_TOP,
+    textureBottom: ANCIENT_DEBRIS_TOP,
   },
   {
     day: 11,
-    ...DEFAULT,
+    title: "Oak Log",
+    description: "Chop it with an axe!",
+    texture: OAK_LOG_SIDE,
+    textureTop: OAK_LOG_TOP,
+    textureBottom: OAK_LOG_TOP,
   },
   {
     day: 12,
-    ...DEFAULT,
+    title: "Crafting Table",
+    description: "Make stuff",
+    texture: CRAFTING_TABLE_SIDE,
+    textureTop: CRAFTING_TABLE_TOP,
+    textureBottom: CRAFTING_TABLE_TOP,
+    textureFront: CRAFTING_TABLE_FRONT,
   },
   {
     day: 13,
-    ...DEFAULT,
+    title: "Cake",
+    description: "yum yum",
+    texture: CAKE_SIDE,
+    textureTop: CAKE_TOP,
+    textureBottom: CAKE_BOTTOM,
+    height: 0.6,
   },
   {
     day: 14,

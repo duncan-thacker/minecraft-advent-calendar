@@ -20,7 +20,7 @@ export default function App() {
 
   const [playLevelUp] = useSound(LEVEL_UP_SOUND);
 
-  const currentDayNumber = 10; //TODO get real number
+  const currentDayNumber = 30; //TODO get real number
   const handleWindowOpen = useCallback(
     (dayNumber, x, y, alreadyOpened) => {
       setBlockModal(dayNumber);

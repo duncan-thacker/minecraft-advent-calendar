@@ -9,6 +9,7 @@ function Block({
   textureLocationFront,
   rotationSpeed,
   viewAngle,
+  height = 1,
   ...props
 }) {
   // This reference will give us direct access to the mesh
@@ -35,7 +36,7 @@ function Block({
   );
 
   return (
-    <mesh {...props} ref={mesh} scale={[1, 1, 1]}>
+    <mesh {...props} ref={mesh} scale={[1, height, 1]}>
       <boxBufferGeometry args={[2, 2, 2]} />
       <meshStandardMaterial attachArray="material" map={texture} />
       <meshStandardMaterial attachArray="material" map={texture} />
