@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  perspective: 80px;
+  perspective: 2500px;
+  perspective-origin: left center;
+  -moz-perspective: 2500px;
+  -moz-perspective-origin: left center;
 }
 
 html, body, #root {

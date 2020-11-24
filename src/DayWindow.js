@@ -12,7 +12,7 @@ export default function DayWindow({
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef();
   const transformStyle = useSpring({
-    transform: `rotate3d(0, 1, 0, ${isOpen ? "-110deg" : "0deg"})`,
+    transform: `rotate3d(0, 1, 0, ${isOpen ? "-130deg" : "0deg"})`,
   });
   const handleClick = useCallback(
     (clickEvent) => onOpen(day, clickEvent.clientX, clickEvent.clientY),

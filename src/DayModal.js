@@ -53,7 +53,10 @@ export default function DayModal({ dayNumber, onClose }) {
         style={{
           position: "absolute",
           backgroundColor: "rgba(0, 0, 0, 0.85)",
-          inset: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           zIndex: 400,
         }}
       />
@@ -61,8 +64,12 @@ export default function DayModal({ dayNumber, onClose }) {
         style={{
           color: "#fff",
           position: "absolute",
-          inset: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           padding: "5vw",
+          width: "90vw",
           zIndex: 500,
           fontSize: "180%",
           display: "flex",
@@ -98,16 +105,25 @@ export default function DayModal({ dayNumber, onClose }) {
             }}
           >
             <div>Zoom</div>
-            <Slider value={fov} onChange={handleFovChange} />
+            <Slider value={fov} onChange={handleFovChange} color="secondary" />
             <div>Rotation</div>
             <Slider
+              color="secondary"
               value={rotationSpeed}
               onChange={handleRotationSpeedChange}
             />
             <div>View Angle</div>
-            <Slider value={viewAngle} onChange={handleViewAngleChange} />
+            <Slider
+              value={viewAngle}
+              onChange={handleViewAngleChange}
+              color="secondary"
+            />
             <div>Light</div>
-            <Slider value={ambientLight} onChange={handleAmbientLightChange} />
+            <Slider
+              value={ambientLight}
+              onChange={handleAmbientLightChange}
+              color="secondary"
+            />
           </div>
           <MinecraftBlock
             textureLocation={dayState.texture}

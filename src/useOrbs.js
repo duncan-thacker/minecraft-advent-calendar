@@ -70,7 +70,10 @@ export default function useOrbs() {
       <div
         style={{
           position: "fixed",
-          inset: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           zIndex: 1600,
           pointerEvents: "none",
           overflow: "hidden",
