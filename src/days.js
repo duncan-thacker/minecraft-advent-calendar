@@ -9,6 +9,9 @@ import DIRT_GRASS_TOP_TEXTURE from "./textures/dirt-grass-top.jpg";
 import PUMPKIN_TOP_TEXTURE from "./textures/pumpkin-top.png";
 import PUMPKIN_SIDE_TEXTURE from "./textures/pumpkin-side.png";
 import PUMPKIN_FACE_TEXTURE from "./textures/pumpkin-face.png";
+import TNT_TOP_TEXTURE from "./textures/tnt-top.png";
+import TNT_SIDE_TEXTURE from "./textures/tnt-side.png";
+import TNT_BOTTOM_TEXTURE from "./textures/tnt-bottom.png";
 
 const DEFAULT = {
   title: "Diamond Ore",
@@ -62,7 +65,11 @@ const DAYS = [
   },
   {
     day: 7,
-    ...DEFAULT,
+    title: "TNT",
+    description: "KABOOM!",
+    texture: TNT_SIDE_TEXTURE,
+    textureTop: TNT_TOP_TEXTURE,
+    textureBottom: TNT_BOTTOM_TEXTURE,
   },
   {
     day: 8,
