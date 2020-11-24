@@ -6,6 +6,14 @@ import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useOrbs from "./useOrbs";
 
+const DAY_WINDOWS_GRID_STYLE = {
+  width: "100%",
+  height: "100%",
+  backgroundImage: `url('${BACKGROUND_IMAGE}')`,
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+};
+
 export default function App() {
   const [openWindows = [], setOpenWindows, clearWindowState] = useLocalStorage(
     "minecraft-open-windows",
@@ -16,7 +24,7 @@ export default function App() {
 
   const { createOrbs, orbLayer } = useOrbs();
 
-  const currentDayNumber = 30; //TODO get real number
+  const currentDayNumber = 15; //TODO get real number
 
   const handleWindowOpen = useCallback(
     (dayNumber, x, y, alreadyOpened) => {
@@ -37,15 +45,7 @@ export default function App() {
       </button>
       <DayModal dayNumber={blockModal} onClose={() => setBlockModal(false)} />
       {orbLayer}
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url('${BACKGROUND_IMAGE}')`,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
-        }}
-      >
+      <div style={DAY_WINDOWS_GRID_STYLE}>
         {DAYS_INFO.map((dayInfo) => (
           <DayWindow
             key={dayInfo.day}

@@ -4,6 +4,79 @@ import MinecraftBlock from "./MinecraftBlock";
 import DAYS_INFO from "./days";
 import Slider from "@material-ui/core/Slider";
 
+const MODAL_STYLE_VISIBLE = {
+  position: "fixed",
+  opacity: 1,
+  transition: "opacity 0.4s ease-in-out 0.4s",
+  pointerEvents: "all",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 1200,
+};
+
+const MODAL_STYLE_INVISIBLE = {
+  position: "fixed",
+  opacity: 0,
+  transition: "opacity 0.4s ease-in-out 0s",
+  pointerEvents: "none",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 1200,
+};
+
+const BACKDROP_STYLE = {
+  position: "absolute",
+  backgroundColor: "rgba(0, 0, 0, 0.85)",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 400,
+};
+
+const MODAL_CONTENT_STYLE = {
+  color: "#fff",
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  padding: "5vw",
+  width: "90vw",
+  zIndex: 500,
+  fontSize: "180%",
+  display: "flex",
+  alignItems: "flex-start",
+};
+
+const FLEX_EXPAND_STYLE = {
+  flex: "1 1 0",
+};
+
+const CLOSE_BUTTON_STYLE = {
+  background: "none",
+  border: "none",
+  fontSize: "200%",
+  cursor: "pointer",
+  color: "inherit",
+  fontFamily: "inherit",
+  margin: 16,
+};
+
+const BLOCK_SIDEBAR_STYLE = { flex: "0 0 600px" };
+
+const SLIDERS_STYLE = {
+  display: "grid",
+  gridTemplateColumns: "200px 1fr",
+  alignItems: "center",
+};
+
+const BLOCK_CANVAS_STYLE = { height: 600, width: 600 };
+
 export default function DayModal({ dayNumber, onClose }) {
   const isVisible = Boolean(dayNumber);
   const [dayState, setDayState] = useState({});
@@ -34,76 +107,20 @@ export default function DayModal({ dayNumber, onClose }) {
   }, [dayNumber]);
 
   const modal = (
-    <div
-      style={{
-        position: "fixed",
-        opacity: isVisible ? 1 : 0,
-        transition: isVisible
-          ? "opacity 0.4s ease-in-out 0.4s"
-          : "opacity 0.4s ease-in-out 0s",
-        pointerEvents: isVisible ? "all" : "none",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 1200,
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          backgroundColor: "rgba(0, 0, 0, 0.85)",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 400,
-        }}
-      />
-      <div
-        style={{
-          color: "#fff",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          padding: "5vw",
-          width: "90vw",
-          zIndex: 500,
-          fontSize: "180%",
-          display: "flex",
-          alignItems: "flex-start",
-        }}
-      >
-        <div style={{ flex: "1 1 0" }}>
+    <div style={isVisible ? MODAL_STYLE_VISIBLE : MODAL_STYLE_INVISIBLE}>
+      <div style={BACKDROP_STYLE} />
+      <div style={MODAL_CONTENT_STYLE}>
+        <div style={FLEX_EXPAND_STYLE}>
           <h2 style={{ fontSize: "400%", margin: "8px 0" }}>
             {dayState.title}
           </h2>
           <p>{dayState.description}</p>
-          <button
-            onClick={onClose}
-            style={{
-              background: "none",
-              border: "none",
-              fontSize: "200%",
-              cursor: "pointer",
-              color: "inherit",
-              fontFamily: "inherit",
-              margin: 16,
-            }}
-          >
+          <button onClick={onClose} style={CLOSE_BUTTON_STYLE}>
             Close
           </button>
         </div>
-        <div style={{ flex: "0 0 600px" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "200px 1fr",
-              alignItems: "center",
-            }}
-          >
+        <div style={BLOCK_SIDEBAR_STYLE}>
+          <div style={SLIDERS_STYLE}>
             <div>Zoom</div>
             <Slider value={fov} onChange={handleFovChange} color="secondary" />
             <div>Rotation</div>
@@ -137,7 +154,7 @@ export default function DayModal({ dayNumber, onClose }) {
             viewAngle={(viewAngle - 50) / 60}
             ambientLight={ambientLight / 50}
             fov={125 / (fov + 5)}
-            style={{ height: 600, width: 600 }}
+            style={BLOCK_CANVAS_STYLE}
           />
         </div>
       </div>

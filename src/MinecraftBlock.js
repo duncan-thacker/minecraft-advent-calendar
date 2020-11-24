@@ -3,6 +3,10 @@ import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import { PlainAnimator } from "three-plain-animator/lib/plain-animator";
 import * as THREE from "three";
 
+const BOX_GEOMETRY = [2, 2, 2];
+const LIGHT_POSITION = [10, 10, 10];
+const ORIGIN = [0, 0, 0];
+
 function Block({
   textureLocation,
   textureLocationTop,
@@ -51,9 +55,11 @@ function Block({
     animateFrame();
   });
 
+  const scale = useMemo(() => [1, height, 1], [height]);
+
   return (
-    <mesh {...props} ref={mesh} scale={[1, height, 1]}>
-      <boxBufferGeometry args={[2, 2, 2]} />
+    <mesh {...props} ref={mesh} scale={scale}>
+      <boxBufferGeometry args={BOX_GEOMETRY} />
       <meshStandardMaterial attachArray="material" map={texture} />
       <meshStandardMaterial attachArray="material" map={textureLeft} />
       <meshStandardMaterial attachArray="material" map={textureTop} />
@@ -78,8 +84,8 @@ export default function MinecraftBlock({ ambientLight, style, fov, ...props }) {
     <Canvas style={style}>
       <Suspense fallback={null}>
         <ambientLight intensity={0.1} />
-        <pointLight position={[10, 10, 10]} intensity={ambientLight} />
-        <Block position={[0, 0, 0]} {...props} />
+        <pointLight position={LIGHT_POSITION} intensity={ambientLight} />
+        <Block position={ORIGIN} {...props} />
       </Suspense>
       <Dolly fov={fov} />
     </Canvas>
