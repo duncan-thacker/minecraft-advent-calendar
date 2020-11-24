@@ -7,6 +7,8 @@ function preloadImage(filename) {
   img.src = filename;
 }
 
+preloadImage(XP_ORB_IMG);
+
 function randomUpTo(high) {
   return Math.random() * high;
 }
