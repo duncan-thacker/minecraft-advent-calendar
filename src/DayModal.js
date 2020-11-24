@@ -114,6 +114,8 @@ export default function DayModal({ dayNumber, onClose }) {
             textureLocationTop={dayState.textureTop}
             textureLocationBottom={dayState.textureBottom}
             textureLocationFront={dayState.textureFront}
+            textureLocationLeft={dayState.textureLeft}
+            isAnimated={dayState.isAnimated}
             height={dayState.height}
             rotationSpeed={(rotationSpeed - 50) / 400}
             viewAngle={(viewAngle - 50) / 60}

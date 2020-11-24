@@ -9886,6 +9886,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rxjs@6.6.2:
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.2.tgz#8096a7ac03f2cc4fe5860ef6e572810d9e01c0d2"
+  integrity sha512-BHdBMVoWC2sL26w//BCu3YzKT4s2jip/WhwsGEDmeKYBhKDZeYezVUnHatYB7L85v5xs0BAQmg6BEYJEKxBabg==
+  dependencies:
+    tslib "^1.9.0"
+
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -10847,6 +10854,19 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three-plain-animator@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/three-plain-animator/-/three-plain-animator-1.0.6.tgz#92ceb119bcc29b12fe60e97a7f698e46e4bda3f8"
+  integrity sha512-goot3GYvr+2z/I/lO4Yczib2u9RdcqeE4Zv9F4AMUQ6cfm5EAUGlJ8L8fuKoi91Qjzkw0E3/M/nvs7Kp9Wuh1w==
+  dependencies:
+    rxjs "6.6.2"
+    three "0.120.0"
+
+three@0.120.0:
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.120.0.tgz#238ab7a9e5d92af6bab3d257ea2b1891c90aef63"
+  integrity sha512-Swffpi3EAHWkmqC1MagKEzR5XgwkDiyeWI3M7vkGbBc0xhq2LcQmJj5DqBruLkrgcZQ+fM/+fSQBU1tDvggO4A==
 
 three@^0.122.0:
   version "0.122.0"

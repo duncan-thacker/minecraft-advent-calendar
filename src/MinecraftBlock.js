@@ -1,5 +1,6 @@
-import React, { useRef, Suspense } from "react";
+import React, { useRef, Suspense, useMemo } from "react";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
+import { PlainAnimator } from "three-plain-animator/lib/plain-animator";
 import * as THREE from "three";
 
 function Block({
@@ -7,6 +8,8 @@ function Block({
   textureLocationTop,
   textureLocationBottom,
   textureLocationFront,
+  textureLocationLeft,
+  isAnimated,
   rotationSpeed,
   viewAngle,
   height = 1,
@@ -14,12 +17,6 @@ function Block({
 }) {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => {
-    mesh.current.rotation.x = viewAngle;
-    mesh.current.rotation.y = mesh.current.rotation.y += rotationSpeed;
-  });
 
   const texture = useLoader(THREE.TextureLoader, textureLocation);
   const textureTop = useLoader(
@@ -34,12 +31,31 @@ function Block({
     THREE.TextureLoader,
     textureLocationFront || textureLocation
   );
+  const textureLeft = useLoader(
+    THREE.TextureLoader,
+    textureLocationLeft || textureLocation
+  );
+
+  const animateFrame = useMemo(() => {
+    if (isAnimated && texture) {
+      const animator = new PlainAnimator(texture, 1, 4, 4, 0.5);
+      return () => animator.animate();
+    }
+    return () => false;
+  }, [isAnimated, texture]);
+
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame(() => {
+    mesh.current.rotation.x = viewAngle;
+    mesh.current.rotation.y = mesh.current.rotation.y += rotationSpeed;
+    animateFrame();
+  });
 
   return (
     <mesh {...props} ref={mesh} scale={[1, height, 1]}>
       <boxBufferGeometry args={[2, 2, 2]} />
       <meshStandardMaterial attachArray="material" map={texture} />
-      <meshStandardMaterial attachArray="material" map={texture} />
+      <meshStandardMaterial attachArray="material" map={textureLeft} />
       <meshStandardMaterial attachArray="material" map={textureTop} />
       <meshStandardMaterial attachArray="material" map={textureBottom} />
       <meshStandardMaterial attachArray="material" map={textureFront} />
