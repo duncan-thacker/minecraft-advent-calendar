@@ -121,6 +121,10 @@ const DAYS = [
     ...DEFAULT,
   },
   {
+    day: 22,
+    ...DEFAULT,
+  },
+  {
     day: 23,
     ...DEFAULT,
   },
