@@ -5,7 +5,8 @@ import BACKGROUND_IMAGE from "./background.jpg";
 import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useSound from "use-sound";
-import LEVEL_UP_SOUND from "./sounds/levelup.wav";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import LEVEL_UP_SOUND from "url-loader!./sounds/levelup.mp3";
 import useOrbs from "./useOrbs";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
   const [playLevelUp] = useSound(LEVEL_UP_SOUND);
 
   const currentDayNumber = 30; //TODO get real number
+  
   const handleWindowOpen = useCallback(
     (dayNumber, x, y, alreadyOpened) => {
       setBlockModal(dayNumber);
