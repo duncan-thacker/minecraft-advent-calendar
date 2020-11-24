@@ -40,16 +40,9 @@ import CARTOGRAPHY_TABLE_SIDE3 from "./game-textures/cartography_table_side3.png
 import CARTOGRAPHY_TABLE_TOP from "./game-textures/cartography_table_top.png";
 import PRISMARINE from "./game-textures/prismarine.png";
 
-const DEFAULT = {
-  title: "Diamond Ore",
-  description:
-    "Planks are common blocks used in crafting recipes and are also the first thing that a player can craft in survival mode and adventure mode. Two categories of planks can be differentiated: flammable Overworld Planks made from tree logs, and nonflammable Nether Planks made from fungi stems.",
-  texture: DIAMOND_ORE,
-};
-
 const DAYS = [
   {
-    day: 1,
+    day: 22,
     title: "Dirt with grass",
     description:
       "Planks are common blocks used in crafting recipes and are also the first thing that a player can craft in survival mode and adventure mode. Two categories of planks can be differentiated: flammable Overworld Planks made from tree logs, and nonflammable Nether Planks made from fungi stems.",
@@ -58,32 +51,32 @@ const DAYS = [
     textureBottom: DIRT_BOTTOM,
   },
   {
-    day: 2,
+    day: 6,
     title: "Gold ore",
     description:
       "Gold ore is one of the rarest types of mineral blocks found underground.",
     texture: GOLD_ORE,
   },
   {
-    day: 3,
+    day: 12,
     title: "Iron ore",
     description: "Iron ore is cool",
     texture: IRON_ORE,
   },
   {
-    day: 4,
+    day: 17,
     title: "Lapis Lazuli ore",
     description: "Lapis ore is cool",
     texture: LAPIS_ORE,
   },
   {
-    day: 5,
+    day: 3,
     title: "Redstone ore",
     description: "Redstone is cool",
     texture: REDSTONE_ORE,
   },
   {
-    day: 6,
+    day: 9,
     title: "Carved Pumpkin",
     description: "Spoooopy",
     texture: PUMPKIN_SIDE,
@@ -91,7 +84,7 @@ const DAYS = [
     textureFront: PUMPKIN_FACE,
   },
   {
-    day: 7,
+    day: 19,
     title: "TNT",
     description: "KABOOM!",
     texture: TNT_SIDE,
@@ -99,19 +92,19 @@ const DAYS = [
     textureBottom: TNT_BOTTOM,
   },
   {
-    day: 8,
+    day: 23,
     title: "Emerald ore",
     description: "Emerald is cool",
     texture: EMERALD_ORE,
   },
   {
-    day: 9,
+    day: 5,
     title: "Coal ore",
     description: "Coal is cool",
     texture: COAL_ORE,
   },
   {
-    day: 10,
+    day: 20,
     title: "Ancient Debris",
     description: "Ooooh Netherite!!!",
     texture: ANCIENT_DEBRIS_SIDE,
@@ -119,7 +112,7 @@ const DAYS = [
     textureBottom: ANCIENT_DEBRIS_TOP,
   },
   {
-    day: 11,
+    day: 1,
     title: "Oak Log",
     description: "Chop it with an axe!",
     texture: OAK_LOG_SIDE,
@@ -127,7 +120,7 @@ const DAYS = [
     textureBottom: OAK_LOG_TOP,
   },
   {
-    day: 12,
+    day: 4,
     title: "Crafting Table",
     description: "Make stuff",
     texture: CRAFTING_TABLE_SIDE,
@@ -145,7 +138,7 @@ const DAYS = [
     height: 0.6,
   },
   {
-    day: 14,
+    day: 8,
     title: "Bookshelf",
     description: "Read some books",
     texture: BOOKSHELF_SIDE,
@@ -159,7 +152,7 @@ const DAYS = [
     texture: OAK_PLANKS,
   },
   {
-    day: 16,
+    day: 21,
     title: "Dirt with smow",
     description:
       "Planks are common blocks used in crafting recipes and are also the first thing that a player can craft in survival mode and adventure mode. Two categories of planks can be differentiated: flammable Overworld Planks made from tree logs, and nonflammable Nether Planks made from fungi stems.",
@@ -168,7 +161,7 @@ const DAYS = [
     textureBottom: DIRT_BOTTOM,
   },
   {
-    day: 17,
+    day: 24,
     title: "Nether Gold ore",
     description:
       "Gold ore is one of the rarest types of mineral blocks found underground.",
@@ -182,31 +175,31 @@ const DAYS = [
     texture: NETHER_QUARTZ_ORE,
   },
   {
-    day: 19,
+    day: 7,
     title: "Sand",
     description: "Rough and irritating, gets everywhere",
     texture: SAND,
   },
   {
-    day: 20,
+    day: 2,
     title: "Soul Sand",
     description: "Rough and irritating, gets everywhere",
     texture: SOUL_SAND,
   },
   {
-    day: 21,
+    day: 10,
     title: "Cobblestone",
     description: "Stone! Made of cobble!",
     texture: COBBLESTONE,
   },
   {
-    day: 22,
+    day: 16,
     title: "Beacon",
     description: "Stone! Made of cobble!",
     texture: BEACON,
   },
   {
-    day: 23,
+    day: 14,
     title: "Cartography Table",
     description: "Make maps",
     texture: CARTOGRAPHY_TABLE_SIDE3,
@@ -216,7 +209,7 @@ const DAYS = [
     textureLeft: CARTOGRAPHY_TABLE_SIDE2,
   },
   {
-    day: 24,
+    day: 11,
     title: "Prismarine",
     description: "Prismarine",
     texture: PRISMARINE,

@@ -75,7 +75,7 @@ export default function DayWindow({
   return (
     <div ref={windowRef} style={DAY_WINDOW_CONTAINER_STYLE}>
       <animated.button
-        disabled={!canOpen}
+        disabled={!canOpen || isOpen}
         onClick={handleClick}
         style={lidStyle}
       >
