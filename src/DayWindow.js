@@ -25,7 +25,6 @@ export default function DayWindow({
 
   useEffect(() => {
     setOffset(windowRef.current.getBoundingClientRect());
-    console.log(windowRef.current.getBoundingClientRect().x);
   }, []);
 
   return (

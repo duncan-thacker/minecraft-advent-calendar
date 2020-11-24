@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useRafLoop } from "react-use";
-import XP_ORB_IMG from "./img/ExperienceOrb.webp";
+import XP_ORB_IMG from "./img/ExperienceOrb.gif";
 
 function randomUpTo(high) {
   return Math.random() * high;
