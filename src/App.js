@@ -5,7 +5,7 @@ import BACKGROUND_IMAGE from "./background.jpg";
 import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useSound from "use-sound";
-import LEVEL_UP_SOUND from "./sounds/levelup.mp3";
+import LEVEL_UP_SOUND from "./sounds/levelup.wav";
 import useOrbs from "./useOrbs";
 
 export default function App() {
