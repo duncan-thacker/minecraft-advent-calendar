@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import DayWindow from "./DayWindow";
 import { useLocalStorage } from "react-use";
 import BACKGROUND_IMAGE from "./background.jpg";
 import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useOrbs from "./useOrbs";
+import IntroModal from "./IntroModal";
 
 const DAY_WINDOWS_GRID_STYLE = {
   width: "100%",
@@ -14,10 +15,11 @@ const DAY_WINDOWS_GRID_STYLE = {
   gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
 };
 
+const INITIAL_APP_STATE = {};
+
 export default function App() {
-  const [openWindows = [], setOpenWindows, clearWindowState] = useLocalStorage(
-    "minecraft-open-windows",
-    []
+  const [appState, setAppState, clearAppState] = useLocalStorage(
+    "minecraft-advent-app-state-1"
   );
 
   const [blockModal, setBlockModal] = useState(0);
@@ -26,24 +28,37 @@ export default function App() {
 
   const currentDayNumber = 15; //TODO get real number
 
+  const openWindows = useMemo(() => appState?.openWindows || [], [appState]);
+
   const handleWindowOpen = useCallback(
     (dayNumber, x, y, alreadyOpened) => {
       setBlockModal(dayNumber);
 
-      setOpenWindows([...openWindows, dayNumber]);
+      setAppState({
+        ...appState,
+        openWindows: [...openWindows, dayNumber],
+      });
       if (!alreadyOpened) {
         createOrbs(x, y, 10);
       }
     },
-    [setOpenWindows, openWindows, createOrbs]
+    [appState, setAppState, openWindows, createOrbs]
   );
+
+  const handleInitialiseApp = useCallback(
+    () => setAppState(INITIAL_APP_STATE),
+    [setAppState]
+  );
+
+  const handleCloseDayModal = useCallback(() => setBlockModal(false), []);
 
   return (
     <>
-      <button onClick={clearWindowState} style={{ position: "absolute" }}>
+      <button onClick={clearAppState} style={{ position: "absolute" }}>
         Clear
       </button>
-      <DayModal dayNumber={blockModal} onClose={() => setBlockModal(false)} />
+      <DayModal dayNumber={blockModal} onClose={handleCloseDayModal} />
+      <IntroModal open={!Boolean(appState)} onClose={handleInitialiseApp} />
       {orbLayer}
       <div style={DAY_WINDOWS_GRID_STYLE}>
         {DAYS_INFO.map((dayInfo) => (
