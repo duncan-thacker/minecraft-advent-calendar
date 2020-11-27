@@ -115,9 +115,11 @@ export default function DayModal({ dayNumber, onClose }) {
             {dayState.title}
           </h2>
           <p style={{ fontSize: "110%" }}>{dayState.description}</p>
-          <button onClick={onClose} style={CLOSE_BUTTON_STYLE}>
-            Close
-          </button>
+          <div style={{ textAlign: "right" }}>
+            <button onClick={onClose} style={CLOSE_BUTTON_STYLE}>
+              Close
+            </button>
+          </div>
         </div>
         <div style={BLOCK_SIDEBAR_STYLE}>
           <div style={SLIDERS_STYLE}>
