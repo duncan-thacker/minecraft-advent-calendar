@@ -17,6 +17,15 @@ const DAY_WINDOWS_GRID_STYLE = {
 
 const INITIAL_APP_STATE = {};
 
+const NOW = new Date();
+const IS_DECEMBER = NOW.getMonth() === 11;
+const NOW_DAY_NUMBER = NOW.getDate();
+
+function isDayUnlocked(dayNumber) {
+  if (IS_DECEMBER && dayNumber > NOW_DAY_NUMBER) return false;
+  return true;
+}
+
 export default function App() {
   const [appState, setAppState, clearAppState] = useLocalStorage(
     "minecraft-advent-app-state-1"
@@ -25,8 +34,6 @@ export default function App() {
   const [blockModal, setBlockModal] = useState(0);
 
   const { createOrbs, orbLayer } = useOrbs();
-
-  const currentDayNumber = 45; //TODO get real number
 
   const openWindows = useMemo(() => appState?.openWindows || [], [appState]);
 
@@ -67,7 +74,7 @@ export default function App() {
             {...dayInfo}
             isOpen={openWindows.includes(dayInfo.day)}
             onOpen={handleWindowOpen}
-            canOpen={dayInfo.day <= currentDayNumber}
+            canOpen={isDayUnlocked(dayInfo.day)}
             backgroundImage={BACKGROUND_IMAGE}
           />
         ))}
