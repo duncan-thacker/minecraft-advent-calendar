@@ -26,7 +26,7 @@ export default function App() {
 
   const { createOrbs, orbLayer } = useOrbs();
 
-  const currentDayNumber = 15; //TODO get real number
+  const currentDayNumber = 45; //TODO get real number
 
   const openWindows = useMemo(() => appState?.openWindows || [], [appState]);
 

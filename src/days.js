@@ -64,11 +64,35 @@ const COBBLESTONE_BLOCK = {
   texture: COBBLESTONE,
 };
 
+const PRISMARINE_BLOCK = {
+  title: "Prismarine",
+  description:
+    "Prismarine is a type of stone that appears underwater in ruins and ocean monuments. It periodically changes color between blue and green. Prismarine only drops itself when mined with a pickaxe. If mined by any other tool, it drops nothing. All types of prismarine naturally generate as the main blocks making up ocean monuments. Normal prismarine and its bricks are found in large amounts due to the size of the structure. Prismarine can be used for decoration or as a high blast resistance building block.",
+  texture: PRISMARINE,
+  isAnimated: true,
+};
+
+const ANCIENT_DEBRIS_BLOCK = {
+  title: "Ancient Debris",
+  description:
+    "Ancient debris is an extremely rare ore found in the Nether, and is the main source of netherite scraps. Its high blast resistance makes it immune to normal explosions. In item form, it floats on lava and cannot be burned by any form of fire. Ancient debris generates in the Nether in the form of mineral veins. Ancient debris never generates naturally exposed to air and can replace only netherrack, basalt, and blackstone. Ancient debris drops as an item if mined by a diamond or netherite pickaxe. If mined by any other tool, it drops nothing. Ancient Debris can be smelted into Netherite Scrap using a furnace or blast furnace.",
+  texture: ANCIENT_DEBRIS_SIDE,
+  textureTop: ANCIENT_DEBRIS_TOP,
+  textureBottom: ANCIENT_DEBRIS_TOP,
+};
+
 const SAND_BLOCK = {
   title: "Sand",
   description:
     "Sand is a block affected by gravity. Sand can be broken without tools, but a shovel is the fastest method of obtaining it. Sand generates naturally in many biomes of the Overworld near lakes or ponds, notably deserts, beaches, and rivers, generally in four-block-deep layers supported by stone and sandstone. Sand also generates as the ocean floor of lukewarm oceans, warm oceans, and their respective deep variants. Sand can be used in the construction of airlocks and mob suffocation traps. Being affected by gravity, it can be quickly and easily removed from ground level. ",
   texture: SAND,
+};
+
+const SOUL_SAND_BLOCK = {
+  title: "Soul Sand",
+  description:
+    "Soul sand is a block found naturally only in the Nether. Soul sand usually slows down the movement of mobs and players standing on it. It is also used for growing nether wart and for constructing a Wither. Soul sand can generate in the Nether in the form of mineral veins. Soul sand can be mined with any tool (or none), but shovels are the quickest. Soul sand slows the movement of any mob or player and causes them to sink 2 pixels into the block while walking on it.",
+  texture: SOUL_SAND,
 };
 
 const OAK_LOG_BLOCK = {
@@ -89,8 +113,58 @@ const COAL_ORE_BLOCK = {
 
 const IRON_ORE_BLOCK = {
   title: "Iron ore",
-  description: "Iron ore is a mineral block found underground. It is smelted into iron ingots, which are used to make tools and armor. Iron ore must be mined with a stone pickaxe or higher, or else it drops nothing. Unlike most ores, iron ore always drops itself, regardless of whether the player used Silk Touch. Iron ore can generate in the Overworld in the form of mineral veins.",
+  description:
+    "Iron ore is a mineral block found underground. It is smelted into iron ingots, which are used to make tools and armor. Iron ore must be mined with a stone pickaxe or higher, or else it drops nothing. Unlike most ores, iron ore always drops itself, regardless of whether the player used Silk Touch. Iron ore can generate in the Overworld in the form of mineral veins.",
   texture: IRON_ORE,
+};
+
+const REDSTONE_ORE_BLOCK = {
+  title: "Redstone ore",
+  description:
+    "Redstone ore is the ore block from which redstone is obtained. Redstone ore can generate in the Overworld in the form of mineral veins. Redstone ore can be mined with an iron pickaxe or higher, or it drops nothing. Redstone ore produces light and red particles when clicked, updated, or contacted by any mob (exceptions being a sneaking player and spiders).",
+  texture: REDSTONE_ORE,
+};
+
+const GOLD_ORE_BLOCK = {
+  title: "Gold ore",
+  description:
+    "Gold ore is one of the rarest types of mineral blocks found underground. Gold ore can generate in the Overworld in the form of mineral veins. Gold ore drops as an item if mined by an iron pickaxe or higher. If mined by any other tool, it drops nothing. Unlike most ores, gold ore does not require Silk Touch to be obtained, and instead always drops itself. Piglins become hostile toward players who mine gold ore, even if the player is wearing golden armor. Piglins also run toward any gold ores on the ground, and inspect it for 6 to 8 seconds before putting it in their inventory.",
+  texture: GOLD_ORE,
+};
+
+const LAPIS_LAZULI_ORE_BLOCK = {
+  title: "Lapis Lazuli ore",
+  description:
+    "Lapis lazuli ore is the ore block from which lapis lazuli is obtained. Lapis lazuli ore can generate in the Overworld in the form of mineral veins. Lapis lazuli ore can be mined with a stone pickaxe or higher. To obtain the block itself, the player must use Silk Touch; otherwise, the block drops several lapis lazuli. When mined with a Fortune enchanted pickaxe, there is a chance for the drops to be multiplied by between 2 and the level plus 1, up to a maximum of 2 to 4 at level III (for a maximum of 36 lapis lazuli dropped).",
+  texture: LAPIS_ORE,
+};
+
+const EMERALD_ORE_BLOCK = {
+  title: "Emerald ore",
+  description:
+    "Emerald ore is the rarest mineral block in the game. It drops emeralds when mined, or itself if mined with a pickaxe with the Silk Touch enchantment. Emerald ore can be mined with an iron pickaxe or higher. Otherwise it drops nothing. Emerald ore can generate in Overworld in the form of mineral veins.",
+  texture: EMERALD_ORE,
+};
+
+const DIAMOND_ORE_BLOCK = {
+  title: "Diamond Ore",
+  description:
+    "Diamond ore is a rare ore that generates deep underground, and is the only reliable source of diamonds. Diamond ore can generate in the Overworld in the form of mineral veins. The diamond ore block itself (rather than its diamond drops) can be obtained by mining it with an iron, diamond or netherite pickaxe with the Silk Touch enchantment. When mined without Silk Touch, diamond ore drops a single diamond. The maximum amount of diamonds dropped can be increased with the Fortune enchantment.",
+  texture: DIAMOND_ORE,
+};
+
+const NETHER_QUARTZ_ORE_BLOCK = {
+  title: "Nether Quartz ore",
+  description:
+    "Nether quartz ore is ore found in the Nether, and is a source of quartz. Nether quartz ore can generate in the Nether in the form of mineral veins. Nether quartz ore can be mined with any pickaxe, or it drops nothing. If mined with Silk Touch, the block drops itself. Otherwise, it drops 1 nether quartz (or more with the Fortune enchantment). ",
+  texture: NETHER_QUARTZ_ORE,
+};
+
+const NETHER_GOLD_ORE_BLOCK = {
+  title: "Nether Gold ore",
+  description:
+    "Nether gold ore is a variant of gold ore found only in the Nether. Nether gold ore generates in the Nether in the form of mineral veins. Nether gold ore requires a pickaxe to be mined. Nether gold ore drops 2-6 gold nuggets when mined with any pickaxe.",
+  texture: NETHER_GOLD_ORE,
 };
 
 const CRAFTING_TABLE_BLOCK = {
@@ -103,6 +177,26 @@ const CRAFTING_TABLE_BLOCK = {
   textureFront: CRAFTING_TABLE_FRONT,
 };
 
+const CARTOGRAPHY_TABLE_BLOCK = {
+  title: "Cartography Table",
+  description:
+    "A cartography table is a cartographer's job site block that generates in villages. It is used for cloning, zooming out and locking maps. A cartography table can be obtained with any tool, including the player's hand, although using an axe is most efficient. Cartography tables can generate naturally inside cartographer houses in villages. Cartography tables can also be used for adding pointers to maps, creating empty maps and renaming maps.‌",
+  texture: CARTOGRAPHY_TABLE_SIDE3,
+  textureTop: CARTOGRAPHY_TABLE_TOP,
+  textureBottom: CARTOGRAPHY_TABLE_SIDE3,
+  textureFront: CARTOGRAPHY_TABLE_SIDE1,
+  textureLeft: CARTOGRAPHY_TABLE_SIDE2,
+};
+
+const BOOKSHELF_BLOCK = {
+  title: "Bookshelf",
+  description:
+    "Bookshelves are decorative blocks that primarily serve to enhance enchanting with an enchanting table. Bookshelves can be broken fairly easily by hand, but can be broken faster by using an axe. In either case, they drop 3 books when broken, allowing the reconstruction of the bookshelf with the addition of six wood planks. Bookshelves generate in village libraries, some village houses, strongholds and woodland mansions. Having bookshelves in the proper position near the table allows the table to apply higher-level enchantments.",
+  texture: BOOKSHELF_SIDE,
+  textureTop: OAK_PLANKS,
+  textureBottom: OAK_PLANKS,
+};
+
 const CARVED_PUMPKIN_BLOCK = {
   title: "Carved Pumpkin",
   description:
@@ -112,6 +206,16 @@ const CARVED_PUMPKIN_BLOCK = {
   textureFront: PUMPKIN_FACE,
 };
 
+const CAKE_BLOCK = {
+  title: "Cake",
+  description:
+    "Cake is a food block that can be eaten by the player. Once the cake is placed, it cannot be recollected even with the use of Silk Touch. Unlike most food, cake cannot be eaten as an item in the hotbar. Before being eaten, it must first be placed on top of a solid block. Some pandas move toward a dropped cake to pick up and eat it. Some may not, depending on the cake's location.",
+  texture: CAKE_SIDE,
+  textureTop: CAKE_TOP,
+  textureBottom: CAKE_BOTTOM,
+  height: 0.6,
+};
+
 const OAK_PLANKS_BLOCK = {
   title: "Oak planks",
   description:
@@ -119,13 +223,19 @@ const OAK_PLANKS_BLOCK = {
   texture: OAK_PLANKS,
 };
 
+const TNT_BLOCK = {
+  title: "TNT",
+  description:
+    "TNT is an explosive block that can be primed to generate an explosion. TNT can be broken instantly with any tool, or without a tool. TNT blocks can be activated by: using a flint and steel or a fire charge, using any item enchanted with Fire Aspect, a powered redstone current, being hit with any flaming projectile, coming into contact with fire or lava, or being in the blast radius of a nearby explosion.",
+  texture: TNT_SIDE,
+  textureTop: TNT_TOP,
+  textureBottom: TNT_BOTTOM,
+};
+
 const DAYS = [
   {
     day: 22,
-    title: "Gold ore",
-    description:
-      "Gold ore is one of the rarest types of mineral blocks found underground.",
-    texture: GOLD_ORE,
+    ...NETHER_GOLD_ORE_BLOCK,
   },
   {
     day: 6,
@@ -133,15 +243,11 @@ const DAYS = [
   },
   {
     day: 12,
-    title: "Soul Sand",
-    description: "Rough and irritating, gets everywhere",
-    texture: SOUL_SAND,
+    ...SOUL_SAND_BLOCK,
   },
   {
     day: 17,
-    title: "Lapis Lazuli ore",
-    description: "Lapis ore is cool",
-    texture: LAPIS_ORE,
+    ...LAPIS_LAZULI_ORE_BLOCK,
   },
   {
     day: 3,
@@ -153,17 +259,11 @@ const DAYS = [
   },
   {
     day: 19,
-    title: "TNT",
-    description: "KABOOM!",
-    texture: TNT_SIDE,
-    textureTop: TNT_TOP,
-    textureBottom: TNT_BOTTOM,
+    ...TNT_BLOCK,
   },
   {
     day: 23,
-    title: "Emerald ore",
-    description: "Emerald is cool",
-    texture: EMERALD_ORE,
+    ...EMERALD_ORE_BLOCK,
   },
   {
     day: 5,
@@ -171,11 +271,7 @@ const DAYS = [
   },
   {
     day: 20,
-    title: "Ancient Debris",
-    description: "Ooooh Netherite!!!",
-    texture: ANCIENT_DEBRIS_SIDE,
-    textureTop: ANCIENT_DEBRIS_TOP,
-    textureBottom: ANCIENT_DEBRIS_TOP,
+    ...ANCIENT_DEBRIS_BLOCK,
   },
   {
     day: 1,
@@ -187,12 +283,7 @@ const DAYS = [
   },
   {
     day: 13,
-    title: "Cake",
-    description: "yum yum",
-    texture: CAKE_SIDE,
-    textureTop: CAKE_TOP,
-    textureBottom: CAKE_BOTTOM,
-    height: 0.6,
+    ...REDSTONE_ORE_BLOCK,
   },
   {
     day: 8,
@@ -200,31 +291,19 @@ const DAYS = [
   },
   {
     day: 15,
-    title: "Bookshelf",
-    description: "Read some books",
-    texture: BOOKSHELF_SIDE,
-    textureTop: OAK_PLANKS,
-    textureBottom: OAK_PLANKS,
+    ...PRISMARINE_BLOCK,
   },
   {
     day: 21,
-    title: "Redstone ore",
-    description: "Redstone is cool",
-    texture: REDSTONE_ORE,
+    ...BOOKSHELF_BLOCK,
   },
   {
     day: 24,
-    title: "Nether Gold ore",
-    description:
-      "Gold ore is one of the rarest types of mineral blocks found underground.",
-    texture: NETHER_GOLD_ORE,
+    ...DIAMOND_ORE_BLOCK,
   },
   {
     day: 18,
-    title: "Nether Quartz ore",
-    description:
-      "Gold ore is one of the rarest types of mineral blocks found underground.",
-    texture: NETHER_QUARTZ_ORE,
+    ...NETHER_QUARTZ_ORE_BLOCK,
   },
   {
     day: 7,
@@ -240,26 +319,15 @@ const DAYS = [
   },
   {
     day: 16,
-    title: "Diamond Ore",
-    description: "Stone! Made of cobble!",
-    texture: DIAMOND_ORE,
+    ...GOLD_ORE_BLOCK,
   },
   {
     day: 14,
-    title: "Cartography Table",
-    description: "Make maps",
-    texture: CARTOGRAPHY_TABLE_SIDE3,
-    textureTop: CARTOGRAPHY_TABLE_TOP,
-    textureBottom: CARTOGRAPHY_TABLE_SIDE3,
-    textureFront: CARTOGRAPHY_TABLE_SIDE1,
-    textureLeft: CARTOGRAPHY_TABLE_SIDE2,
+    ...CARTOGRAPHY_TABLE_BLOCK,
   },
   {
     day: 11,
-    title: "Prismarine",
-    description: "Prismarine",
-    texture: PRISMARINE,
-    isAnimated: true,
+    ...CAKE_BLOCK,
   },
 ];
 
