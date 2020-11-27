@@ -6,6 +6,8 @@ import DAYS_INFO from "./days";
 import DayModal from "./DayModal";
 import useOrbs from "./useOrbs";
 import IntroModal from "./IntroModal";
+import { BASE_BUTTON_STYLE } from "./styles";
+import AboutModal from "./AboutModal";
 
 const DAY_WINDOWS_GRID_STYLE = {
   width: "100%",
@@ -13,6 +15,11 @@ const DAY_WINDOWS_GRID_STYLE = {
   backgroundImage: `url('${BACKGROUND_IMAGE}')`,
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+};
+
+const MENU_BUTTON_STYLE = {
+  ...BASE_BUTTON_STYLE,
+  fontSize: "150%",
 };
 
 const INITIAL_APP_STATE = {};
@@ -30,6 +37,10 @@ export default function App() {
   const [appState, setAppState, clearAppState] = useLocalStorage(
     "minecraft-advent-app-state-1"
   );
+
+  const [aboutModal, setAboutModal] = useState(false);
+  const openAboutModal = useCallback(() => setAboutModal(true), []);
+  const closeAboutModal = useCallback(() => setAboutModal(false), []);
 
   const [blockModal, setBlockModal] = useState(0);
 
@@ -61,11 +72,24 @@ export default function App() {
 
   return (
     <>
-      <button onClick={clearAppState} style={{ position: "absolute" }}>
-        Clear
-      </button>
+      <div
+        style={{
+          padding: 4,
+          backgroundColor: "#000",
+          position: "absolute",
+          color: "#fff",
+        }}
+      >
+        <button onClick={clearAppState} style={MENU_BUTTON_STYLE}>
+          Reset
+        </button>
+        <button onClick={openAboutModal} style={MENU_BUTTON_STYLE}>
+          About
+        </button>
+      </div>
       <DayModal dayNumber={blockModal} onClose={handleCloseDayModal} />
       <IntroModal open={!Boolean(appState)} onClose={handleInitialiseApp} />
+      <AboutModal open={aboutModal} onClose={closeAboutModal} />
       {orbLayer}
       <div style={DAY_WINDOWS_GRID_STYLE}>
         {DAYS_INFO.map((dayInfo) => (

@@ -26,17 +26,28 @@ const CLOSE_BUTTON_STYLE = {
   fontSize: "200%",
 };
 
-export default function IntroModal({ open, onClose }) {
+export default function AboutModal({ open, onClose }) {
   const modal = (
     <div style={open ? MODAL_STYLE_VISIBLE : MODAL_STYLE_INVISIBLE}>
       <div style={BACKDROP_STYLE} />
       <div style={MODAL_CONTENT_STYLE}>
-        <h3>Welcome to the Minecraft Advent Calendar!</h3>
         <p>
-          Behind every door is a virtual Minecraft block to enjoy, but you can't
-          open them all right away! Hope you have a very Merry Christmas.
+          Created by Duncan Thacker for non-commercial use. Please report any
+          bugs or issues to me (
+          <a href="mailto:duncan.thacker@gmail.com">duncan.thacker@gmail.com</a>
+          ).
         </p>
-        <p style={{ marginLeft: 300 }}>love, bokkibear</p>
+        <p>
+          I do not own any of this content or any of the copyright or trademarks
+          associated with Minecraft. Block descriptions are adapted from the{" "}
+          <a href="https://minecraft.gamepedia.com">Minecraft Wiki</a> and are
+          allowed under the site's{" "}
+          <a href="https://creativecommons.org/licenses/by-sa/3.0/">
+            CC BY-SA 3.0 licence
+          </a>
+          . Block textures are adapted from the Minecraft Resource Pack Template
+          for which no licence is explicitly specified.
+        </p>
         <div style={{ display: "flex" }}>
           <button onClick={onClose} style={CLOSE_BUTTON_STYLE}>
             Close

@@ -3,40 +3,12 @@ import { createPortal } from "react-dom";
 import MinecraftBlock from "./MinecraftBlock";
 import DAYS_INFO from "./days";
 import Slider from "@material-ui/core/Slider";
-
-const MODAL_STYLE_VISIBLE = {
-  position: "fixed",
-  opacity: 1,
-  transition: "opacity 0.4s ease-in-out 0.4s",
-  pointerEvents: "all",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 1200,
-};
-
-const MODAL_STYLE_INVISIBLE = {
-  position: "fixed",
-  opacity: 0,
-  transition: "opacity 0.4s ease-in-out 0s",
-  pointerEvents: "none",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 1200,
-};
-
-const BACKDROP_STYLE = {
-  position: "absolute",
-  backgroundColor: "rgba(0, 0, 0, 0.85)",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 400,
-};
+import {
+  BASE_BUTTON_STYLE,
+  MODAL_STYLE_INVISIBLE,
+  MODAL_STYLE_VISIBLE,
+  BACKDROP_STYLE,
+} from "./styles";
 
 const MODAL_CONTENT_STYLE = {
   color: "#fff",
@@ -58,13 +30,8 @@ const FLEX_EXPAND_STYLE = {
 };
 
 const CLOSE_BUTTON_STYLE = {
-  background: "none",
-  border: "none",
+  ...BASE_BUTTON_STYLE,
   fontSize: "200%",
-  cursor: "pointer",
-  color: "inherit",
-  fontFamily: "inherit",
-  margin: 16,
 };
 
 const BLOCK_SIDEBAR_STYLE = { flex: "0 0 600px" };
