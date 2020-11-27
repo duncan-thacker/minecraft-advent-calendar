@@ -19,7 +19,6 @@ function Block({
   height = 1,
   ...props
 }) {
-  // This reference will give us direct access to the mesh
   const mesh = useRef();
 
   const texture = useLoader(THREE.TextureLoader, textureLocation);

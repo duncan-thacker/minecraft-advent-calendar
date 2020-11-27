@@ -111,10 +111,10 @@ export default function DayModal({ dayNumber, onClose }) {
       <div style={BACKDROP_STYLE} />
       <div style={MODAL_CONTENT_STYLE}>
         <div style={FLEX_EXPAND_STYLE}>
-          <h2 style={{ fontSize: "400%", margin: "8px 0" }}>
+          <h2 style={{ fontSize: "400%", margin: "8px 0", letterSpacing: 5 }}>
             {dayState.title}
           </h2>
-          <p>{dayState.description}</p>
+          <p style={{ fontSize: "110%" }}>{dayState.description}</p>
           <button onClick={onClose} style={CLOSE_BUTTON_STYLE}>
             Close
           </button>

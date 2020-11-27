@@ -62,7 +62,7 @@ export default function DayWindow({
       boxSizing: "border-box",
       borderRadius: 16,
       backgroundImage: `url('${backgroundImage}')`,
-      backgroundPosition: `-${offset.x}px -${offset.y}px`,
+      backgroundPosition: `-${offset.x + 8}px -${offset.y + 8}px`,
       color: "#fff",
       WebkitTextStroke: canOpen ? "1px black" : "none",
       transformOrigin: "left",
