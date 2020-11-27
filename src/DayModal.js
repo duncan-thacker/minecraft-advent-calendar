@@ -17,8 +17,9 @@ const MODAL_CONTENT_STYLE = {
   left: 0,
   right: 0,
   bottom: 0,
-  padding: "5vw",
+  margin: "5vh auto",
   width: "90vw",
+  maxWidth: 1800,
   zIndex: 500,
   fontSize: "180%",
   display: "flex",
@@ -34,7 +35,7 @@ const CLOSE_BUTTON_STYLE = {
   fontSize: "200%",
 };
 
-const BLOCK_SIDEBAR_STYLE = { flex: "0 0 600px" };
+const BLOCK_SIDEBAR_STYLE = { flex: "0 0 600px", marginLeft: 40 };
 
 const SLIDERS_STYLE = {
   display: "grid",
@@ -89,6 +90,20 @@ export default function DayModal({ dayNumber, onClose }) {
           </div>
         </div>
         <div style={BLOCK_SIDEBAR_STYLE}>
+          <MinecraftBlock
+            textureLocation={dayState.texture}
+            textureLocationTop={dayState.textureTop}
+            textureLocationBottom={dayState.textureBottom}
+            textureLocationFront={dayState.textureFront}
+            textureLocationLeft={dayState.textureLeft}
+            isAnimated={dayState.isAnimated}
+            height={dayState.height}
+            rotationSpeed={(rotationSpeed - 50) / 400}
+            viewAngle={(viewAngle - 50) / 60}
+            ambientLight={ambientLight / 50}
+            fov={125 / (fov + 5)}
+            style={BLOCK_CANVAS_STYLE}
+          />
           <div style={SLIDERS_STYLE}>
             <div>Zoom</div>
             <Slider value={fov} onChange={handleFovChange} color="secondary" />
@@ -111,20 +126,6 @@ export default function DayModal({ dayNumber, onClose }) {
               color="secondary"
             />
           </div>
-          <MinecraftBlock
-            textureLocation={dayState.texture}
-            textureLocationTop={dayState.textureTop}
-            textureLocationBottom={dayState.textureBottom}
-            textureLocationFront={dayState.textureFront}
-            textureLocationLeft={dayState.textureLeft}
-            isAnimated={dayState.isAnimated}
-            height={dayState.height}
-            rotationSpeed={(rotationSpeed - 50) / 400}
-            viewAngle={(viewAngle - 50) / 60}
-            ambientLight={ambientLight / 50}
-            fov={125 / (fov + 5)}
-            style={BLOCK_CANVAS_STYLE}
-          />
         </div>
       </div>
     </div>
