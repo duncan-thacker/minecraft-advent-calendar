@@ -31,7 +31,7 @@ export default function IntroModal({ open, onClose }) {
     <div style={open ? MODAL_STYLE_VISIBLE : MODAL_STYLE_INVISIBLE}>
       <div style={BACKDROP_STYLE} />
       <div style={MODAL_CONTENT_STYLE}>
-        <h3>Welcome to the Minecraft Advent Calendar!</h3>
+        <h3>Welcome to the Minecraft Advent Calendar 2020!</h3>
         <p>
           Behind every door is a virtual Minecraft block to enjoy, but you can't
           open them all right away! Hope you have a very Merry Christmas.

@@ -29,8 +29,8 @@ const IS_DECEMBER = NOW.getMonth() === 11;
 const NOW_DAY_NUMBER = NOW.getDate();
 
 function isDayUnlocked(dayNumber) {
-  if (IS_DECEMBER && dayNumber > NOW_DAY_NUMBER) return false;
-  return true;
+  if (IS_DECEMBER && dayNumber <= NOW_DAY_NUMBER) return true;
+  return false;
 }
 
 export default function App() {
