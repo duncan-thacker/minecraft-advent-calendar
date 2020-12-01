@@ -13,13 +13,13 @@ const CENTRE_STYLE = {
 
 const ROOT = document.getElementById("root");
 
-if (window.innerWidth < 1400 || window.innerHeight < 800) {
+if (window.innerWidth < 1000 || window.innerHeight < 700) {
   ReactDOM.render(
     <div style={CENTRE_STYLE}>
       <Typography variant="h6" style={{ maxWidth: 500 }}>
         Sorry, the Calendar needs a bigger screen and doesn't work well on
         mobile devices. Your screen should be at least{" "}
-        <strong>1400 x 800</strong>.
+        <strong>1000 x 700</strong>.
       </Typography>
     </div>,
     ROOT

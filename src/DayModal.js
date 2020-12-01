@@ -35,7 +35,11 @@ const CLOSE_BUTTON_STYLE = {
   fontSize: "200%",
 };
 
-const BLOCK_SIDEBAR_STYLE = { flex: "0 0 600px", marginLeft: 40 };
+const BLOCK_SIDEBAR_STYLE = {
+  flex: "0 0 600px",
+  marginLeft: 40,
+  maxWidth: "30vw",
+};
 
 const SLIDERS_STYLE = {
   display: "grid",
@@ -43,7 +47,12 @@ const SLIDERS_STYLE = {
   alignItems: "center",
 };
 
-const BLOCK_CANVAS_STYLE = { height: 600, width: 600 };
+const BLOCK_CANVAS_STYLE = {
+  height: 600,
+  width: 600,
+  maxWidth: "30vw",
+  maxHeight: "30vw",
+};
 
 export default function DayModal({ dayNumber, onClose }) {
   const isVisible = Boolean(dayNumber);
@@ -79,7 +88,14 @@ export default function DayModal({ dayNumber, onClose }) {
       <div style={BACKDROP_STYLE} />
       <div style={MODAL_CONTENT_STYLE}>
         <div style={FLEX_EXPAND_STYLE}>
-          <h2 style={{ fontSize: "400%", margin: "8px 0", letterSpacing: 5 }}>
+          <h2
+            style={{
+              fontSize: "400%",
+              margin: "8px 0",
+              letterSpacing: 5,
+              lineHeight: 0.7,
+            }}
+          >
             {dayState.title}
           </h2>
           <p style={{ fontSize: "110%" }}>{dayState.description}</p>

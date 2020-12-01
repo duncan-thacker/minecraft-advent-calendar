@@ -8,6 +8,7 @@ export const MODAL_STYLE_VISIBLE = {
   right: 0,
   bottom: 0,
   zIndex: 1200,
+  overflow: "hidden",
 };
 
 export const MODAL_STYLE_INVISIBLE = {
@@ -20,6 +21,7 @@ export const MODAL_STYLE_INVISIBLE = {
   right: 0,
   bottom: 0,
   zIndex: 1200,
+  overflow: "hidden",
 };
 
 export const BACKDROP_STYLE = {

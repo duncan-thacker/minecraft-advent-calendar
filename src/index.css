@@ -18,6 +18,10 @@ html, body, #root {
   margin: 0;
 }
 
+#root {
+  overflow: hidden;
+}
+
 a {
   color: #6a9a2d;
 }
